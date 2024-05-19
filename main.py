@@ -3,7 +3,7 @@
 
 import requests
 import json   #built in module
-
+from win32com.client import Dispatch
 city = input("Enter the name of the city = ")
 url = f"https://api.weatherapi.com/v1/current.json?key=aae0a9be680c488a9cf62234241705&q={city}"
 
@@ -31,3 +31,14 @@ print(f"humidity  = {humidity}")
 print(f"Rigion  =  {location}")
 print(f"cuntry  = {cunty}")
 print(f"local time  =  {localtime}")
+
+
+#weather report to voice control
+
+speak = Dispatch("SAPI.SpVoice").Speak
+
+speak(f"last update to weather = {lastupdate}")
+speak(f"{city} tempreture is  = {tempreture}")
+speak(f"windspeed  = {windspeed}")
+speak(f"{city}  weather = {humidity}")
+speak(f"{city} under the cuntry  = {cunty}")
